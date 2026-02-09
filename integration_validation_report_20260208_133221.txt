@@ -1,0 +1,37 @@
+电商系统集成验证报告
+=====================
+
+验证时间: Sun Feb  8 01:32:21 PM CST 2026
+验证环境: Linux ubuntu-moltbot 6.8.0-94-generic #96-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan  9 20:36:55 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+
+1. 基础设施验证
+----------------
+NAME                 IMAGE                          COMMAND                  SERVICE    CREATED          STATUS                    PORTS
+ecommerce-postgres   postgres:15-alpine             "docker-entrypoint.s…"   postgres   27 minutes ago   Up 27 minutes (healthy)   0.0.0.0:5432->5432/tcp, :::5432->5432/tcp
+ecommerce-rabbitmq   rabbitmq:3-management-alpine   "docker-entrypoint.s…"   rabbitmq   27 minutes ago   Up 27 minutes (healthy)   4369/tcp, 5671/tcp, 0.0.0.0:5672->5672/tcp, :::5672->5672/tcp, 15671/tcp, 15691-15692/tcp, 25672/tcp, 0.0.0.0:15672->15672/tcp, :::15672->15672/tcp
+ecommerce-redis      redis:7-alpine                 "docker-entrypoint.s…"   redis      27 minutes ago   Up 27 minutes (healthy)   0.0.0.0:6379->6379/tcp, :::6379->6379/tcp
+
+2. 服务状态
+-----------
+ecommerce-postgres   Up 27 minutes (healthy)   0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp
+ecommerce-redis      Up 27 minutes (healthy)   0.0.0.0:6379->6379/tcp, [::]:6379->6379/tcp
+ecommerce-rabbitmq   Up 27 minutes (healthy)   4369/tcp, 5671/tcp, 0.0.0.0:5672->5672/tcp, [::]:5672->5672/tcp, 15671/tcp, 15691-15692/tcp, 25672/tcp, 0.0.0.0:15672->15672/tcp, [::]:15672->15672/tcp
+
+3. 网络检查
+-----------
+9fc7766ae6bc   ecommerce-project_default   bridge    local
+
+4. 性能指标
+-----------
+API响应时间: ms
+
+5. 问题汇总
+-----------
+
+- 后端服务未运行
+- 前端服务未运行
+
+6. 验证结论
+-----------
+⚠ 系统集成验证部分通过，需要优化
+

@@ -1,0 +1,60 @@
+# 应用配置
+app:
+  name: "ecommerce-backend"
+  port: "8080"
+  env: "development"
+  version: "1.0.0"
+
+# 数据库配置
+database:
+  postgres:
+    host: "postgres"
+    port: 5432
+    user: "postgres"
+    password: "postgres"
+    dbname: "ecommerce"
+    sslmode: "disable"
+    max_idle_conns: 10
+    max_open_conns: 100
+    conn_max_lifetime: "5m"
+
+# Redis配置
+redis:
+  host: "localhost"
+  port: 6379
+  password: ""
+  db: 0
+  pool_size: 10
+  min_idle_conns: 5
+
+# JWT配置
+jwt:
+  secret: "your-secret-key-change-in-production"
+  access_token_expiry: "2h"
+  refresh_token_expiry: "7d"
+
+# 日志配置
+log:
+  level: "info"
+  format: "json"
+  output: "stdout"
+
+# 安全配置
+security:
+  cors_allowed_origins:
+    - "http://localhost:3000"
+    - "http://localhost:8080"
+  rate_limit: 100
+  rate_limit_window: "1m"
+
+# 业务配置
+business:
+  order:
+    auto_cancel_time: "30m"  # 订单自动取消时间
+    auto_complete_time: "7d"  # 订单自动完成时间
+  product:
+    max_images: 10
+    max_image_size: "5MB"
+  cart:
+    max_items: 100
+    max_quantity_per_item: 99
